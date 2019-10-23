@@ -1,19 +1,19 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head>
+
 	<!--Import Google Icon Font-->
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<!-- Compiled and minified CSS -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 
-	<!--Let browser know website is optimized for mobile-->
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta charset="UTF-8" />
 </head>
 
 <body>
 
-	<div class="container">
+	<div class="container" action="#" th:action="@{/calculadora}" th:object="${miObjeto}" method="post">
 		<table class="striped row centered">
 			<thead>
 				<tr>
@@ -27,90 +27,62 @@
 				<tr>
 					<td><strong>Suma</strong></td>
 					<td>
-						<div class="input-field">
-							<input placeholder="Operando 1" id="operandoSuma1" type="text" class="validate">
-						</div>
+						<input th:field="*{sum1}" placeholder="Operando 1" type="text" class="validate">
 					</td>
 					<td>
-						<div class="input-field">
-							<input placeholder="Operando 2" id="operandoSuma2" type="text" class="validate">
-						</div>
+						<input th:field="*{sum2}" placeholder="Operando 2" type="text" class="validate">
 					</td>
 					<td>
-						<div class="input-field">
-							<input disabled value="Resultado" id="disabledSuma" type="text" class="validate">
-						</div>
+						<p th:text="${miObjeto.sumar()}"></p>
 					</td>
 				</tr>
 				<tr>
 					<td><strong>Resta</strong></td>
 					<td>
-						<div class="input-field">
-							<input placeholder="Operando 1" id="operandoSuma2" type="text" class="validate">
-						</div>
+						<input th:field="*{resta1}" placeholder="Operando 1" type="text" class="validate">
 					</td>
 					<td>
-						<div class="input-field">
-							<input placeholder="Operando 2" id="operandoSuma2" type="text" class="validate">
-						</div>
+						<input th:field="*{resta2}" placeholder="Operando 2" type="text" class="validate">
 					</td>
 					<td>
-						<div class="input-field">
-							<input disabled value="Resultado" id="disabled" type="text" class="validate">
-						</div>
+						<p th:text="${miObjeto.restar()}"></p>
 					</td>
 				</tr>
 				<tr>
 					<td><strong>Multiplicacion</strong></td>
 					<td>
-						<div class="input-field">
-							<input placeholder="Operando 1" id="operandoSuma2" type="text" class="validate">
-						</div>
+						<input th:field="*{mult1}" placeholder="Operando 1" type="text" class="validate">
 					</td>
 					<td>
-						<div class="input-field">
-							<input placeholder="Operando 2" id="operandoSuma2" type="text" class="validate">
-						</div>
+						<input th:field="*{mult2}" placeholder="Operando 2" type="text" class="validate">
 					</td>
 					<td>
-						<div class="input-field">
-							<input disabled value="Resultado" id="disabled" type="text" class="validate">
-						</div>
+						<p th:text="${miObjeto.multiplicar()}"></p>
 					</td>
 				</tr>
 				<tr>
 					<td><strong>Division</strong></td>
 					<td>
-						<div class="input-field">
-							<input placeholder="Operando 1" id="operandoSuma2" type="text" class="validate">
-						</div>
+						<input th:field="*{div1}" placeholder="Operando 1" type="text" class="validate">
 					</td>
 					<td>
-						<div class="input-field">
-							<input placeholder="Operando 2" id="operandoSuma2" type="text" class="validate">
-						</div>
+						<input th:field="*{div2}" placeholder="Operando 2" type="text" class="validate">
 					</td>
 					<td>
-						<div class="input-field">
-							<input disabled value="Resultado" id="disabled" type="text" class="validate">
-						</div>
+						<p th:text="${miObjeto.dividir()}"></p>
 					</td>
 				</tr>
 				<tr>
-					<td colspan="4"><button class="btn waves-effect waves-light col s12" type="submit" name="action">
-							<i class="material-icons">
-								airplay
-							</i>
-						</button></td>
+					<td colspan="4">
+						<button class="btn waves-effect waves-light col s12" type="submit" name="action">
+							<i class="material-icons">airplay</i>
+						</button>
+					</td>
 				</tr>
 			</tbody>
 		</table>
 	</div>
 
-
-
-	<!--JavaScript at end of body for optimized loading-->
-	<script type="text/javascript" src="js/materialize.min.js"></script>
 </body>
 
 </html>

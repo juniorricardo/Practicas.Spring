@@ -1,4 +1,4 @@
-package com.curso.apptres.bean;
+package com.curso.weblogin.bean;
 
 public class User {
 
