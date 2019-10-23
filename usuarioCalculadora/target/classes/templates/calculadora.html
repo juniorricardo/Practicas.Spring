@@ -1,0 +1,88 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+	<!--Import Google Icon Font-->
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<!-- Compiled and minified CSS -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+	<meta charset="UTF-8" />
+</head>
+
+<body>
+
+	<div class="container" action="#" th:action="@{/calculadora}" th:object="${miObjeto}" method="post">
+		<table class="striped row centered">
+			<thead>
+				<tr>
+					<th data-field="#">#</th>
+					<th data-field="operando1"></th>
+					<th data-field="operando2"></th>
+					<th data-field="resultado">Resultado</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td><strong>Suma</strong></td>
+					<td>
+						<input th:field="*{sum1}" placeholder="Operando 1" type="text" class="validate">
+					</td>
+					<td>
+						<input th:field="*{sum2}" placeholder="Operando 2" type="text" class="validate">
+					</td>
+					<td>
+						<p th:text="${miObjeto.sumar()}"></p>
+					</td>
+				</tr>
+				<tr>
+					<td><strong>Resta</strong></td>
+					<td>
+						<input th:field="*{resta1}" placeholder="Operando 1" type="text" class="validate">
+					</td>
+					<td>
+						<input th:field="*{resta2}" placeholder="Operando 2" type="text" class="validate">
+					</td>
+					<td>
+						<p th:text="${miObjeto.restar()}"></p>
+					</td>
+				</tr>
+				<tr>
+					<td><strong>Multiplicacion</strong></td>
+					<td>
+						<input th:field="*{mult1}" placeholder="Operando 1" type="text" class="validate">
+					</td>
+					<td>
+						<input th:field="*{mult2}" placeholder="Operando 2" type="text" class="validate">
+					</td>
+					<td>
+						<p th:text="${miObjeto.multiplicar()}"></p>
+					</td>
+				</tr>
+				<tr>
+					<td><strong>Division</strong></td>
+					<td>
+						<input th:field="*{div1}" placeholder="Operando 1" type="text" class="validate">
+					</td>
+					<td>
+						<input th:field="*{div2}" placeholder="Operando 2" type="text" class="validate">
+					</td>
+					<td>
+						<p th:text="${miObjeto.dividir()}"></p>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="4">
+						<button class="btn waves-effect waves-light col s12" type="submit" name="action">
+							<i class="material-icons">airplay</i>
+						</button>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+</body>
+
+</html>
