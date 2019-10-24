@@ -19,7 +19,7 @@ public class MyController {
 
 	@PostMapping("/addUser")
 	public String processForm(User user) {
-		return "showMessage";
+		return "addUser";
 	}
 
 	@GetMapping("/calculadora")
