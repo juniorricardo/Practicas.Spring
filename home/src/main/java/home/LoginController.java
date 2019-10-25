@@ -13,10 +13,12 @@ public class LoginController {
 	@Autowired
 	DummyService miTabla;
 
+	// <'/login'> ruta de escucha, para que atienda peticiones 'Get' en el directorio raiz
 	@GetMapping("/login")
 	public String login(Model modelo) {
+		//se instancia un objeto 'Login' con el nombre 'nuevo' a login.html
 		modelo.addAttribute("nuevo", new Login());
-		return "login";
+		return "login";	// hace referencia a 'login.html' una vista
 	}
 
 	@PostMapping("/login")

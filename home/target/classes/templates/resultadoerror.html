@@ -1,11 +1,18 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <title>Getting Started: Handling Form Submission</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link href="https://unpkg.com/cirrus-ui" type="text/css" rel="stylesheet" />
+
+    <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:200,300,400,600,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
 </head>
+
 <body>
-	<h1>Result</h1>
-    <p th:text="'Hola, Usuario o contraseña incorrecta!!!'" />
+    <h1>Resultado Login</h1>
+    <p th:text="'El usuario ' + ${login.nombre} + ', Error a ingresar. Lorem ipsum dolor sit amet consectetur adipisicing elit.'" />
 </body>
+
 </html>
