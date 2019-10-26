@@ -1,13 +1,13 @@
 package com.curso.weblogin.controller;
 
-import com.curso.weblogin.bean.Cuentas;
-import com.curso.weblogin.bean.User;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+
+import com.curso.weblogin.pojo.Cuentas;
+import com.curso.weblogin.pojo.User;
 
 @Controller
 public class MyController {
@@ -23,17 +23,20 @@ public class MyController {
 	}
 
 	@GetMapping("/calculadora")
-	public String capturarValores(Model modelo){
-		modelo.addAttribute("miObjeto", new Cuentas());
+	public String capturarValores(Model modelo) {
+		modelo.addAttribute("mensaje", "este es un mensaje");
 		return "calculadora";
 	}
 
 	@PostMapping("/calculadora")
-	public String capturarAccion(@ModelAttribute Cuentas miObjeto, float sum1, float sum2,float resta1,float resta2,float mult1,float mult2,float div1,float div2){
+	public String capturarAccion(@ModelAttribute Cuentas miObjeto) {
 		return "calculadora";
-
 	}
 
-
+	@ModelAttribute("cuentas")
+	public Cuentas cargarTabla() {
+		Cuentas elemt = new Cuentas();
+		return elemt;
+	}
 
 }

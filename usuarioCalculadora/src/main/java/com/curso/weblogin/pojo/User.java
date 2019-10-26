@@ -1,4 +1,4 @@
-package com.curso.weblogin.bean;
+package com.curso.weblogin.pojo;
 
 public class User {
 

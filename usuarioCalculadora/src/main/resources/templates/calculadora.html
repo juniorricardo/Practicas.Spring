@@ -3,86 +3,153 @@
 
 <head>
 
-	<!--Import Google Icon Font-->
-	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-	<!-- Compiled and minified CSS -->
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+	<link href="https://unpkg.com/cirrus-ui" type="text/css" rel="stylesheet" />
 
-	<meta charset="UTF-8" />
+	<link href="https://fonts.googleapis.com/css?family=Nunito+Sans:200,300,400,600,700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
+
+	<style>
+		body {
+			background-color: #3498db;
+			font-family: Arial, sans-serif;
+			padding: 50px
+		}
+
+		.container {
+			margin: 20px auto;
+			padding: 10px;
+			width: 500px;
+			height: 750px;
+			background-color: #fff;
+			border-radius: 5px
+		}
+
+		h1 {
+			width: 70%;
+			color: rgb(32, 32, 32);
+			font-size: 62px;
+			margin: 28px auto;
+			margin-bottom: 20px;
+			text-align: center
+		}
+
+		form {
+			text-align: center
+		}
+
+		input {
+			padding: 12px 0;
+			margin-bottom: 10px;
+			border-radius: 3px;
+			border: 2px solid transparent;
+			text-align: center;
+			width: 90%;
+			font-size: 16px;
+			transition: border .2s, background-color .2s
+		}
+
+		form .field {
+			background-color: #ecf0f1
+		}
+
+		form .field:focus {
+			border: 2px solid #3498db
+		}
+
+		form .btn {
+			background-color: #3498db;
+			color: #fff;
+			line-height: 25px;
+			cursor: pointer
+			l
+		}
+
+		form .btn:active,
+		form .btn:hover {
+			background-color: #1f78b4;
+			border: 2px solid #1f78b4
+		}
+
+		.pass-link {
+			text-align: center
+		}
+
+		.pass-link a:link,
+		.pass-link a:visited {
+			font-size: 12px;
+			color: #777
+		}
+	</style>
+
+
+
 </head>
 
 <body>
+	<h1>Calculadora</h1>
+	<div class="container">
+		<form action="#" th:action="@{/calculadora}" th:object="${cuentas}" method="post" class="login">
+			<h3>Suma</h3>
 
-	<div class="container" action="#" th:action="@{/calculadora}" th:object="${miObjeto}" method="post">
-		<table class="striped row centered">
-			<thead>
-				<tr>
-					<th data-field="#">#</th>
-					<th data-field="operando1"></th>
-					<th data-field="operando2"></th>
-					<th data-field="resultado">Resultado</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<td><strong>Suma</strong></td>
-					<td>
-						<input th:field="*{sum1}" placeholder="Operando 1" type="text" class="validate">
-					</td>
-					<td>
-						<input th:field="*{sum2}" placeholder="Operando 2" type="text" class="validate">
-					</td>
-					<td>
-						<p th:text="${miObjeto.sumar()}"></p>
-					</td>
-				</tr>
-				<tr>
-					<td><strong>Resta</strong></td>
-					<td>
-						<input th:field="*{resta1}" placeholder="Operando 1" type="text" class="validate">
-					</td>
-					<td>
-						<input th:field="*{resta2}" placeholder="Operando 2" type="text" class="validate">
-					</td>
-					<td>
-						<p th:text="${miObjeto.restar()}"></p>
-					</td>
-				</tr>
-				<tr>
-					<td><strong>Multiplicacion</strong></td>
-					<td>
-						<input th:field="*{mult1}" placeholder="Operando 1" type="text" class="validate">
-					</td>
-					<td>
-						<input th:field="*{mult2}" placeholder="Operando 2" type="text" class="validate">
-					</td>
-					<td>
-						<p th:text="${miObjeto.multiplicar()}"></p>
-					</td>
-				</tr>
-				<tr>
-					<td><strong>Division</strong></td>
-					<td>
-						<input th:field="*{div1}" placeholder="Operando 1" type="text" class="validate">
-					</td>
-					<td>
-						<input th:field="*{div2}" placeholder="Operando 2" type="text" class="validate">
-					</td>
-					<td>
-						<p th:text="${miObjeto.dividir()}"></p>
-					</td>
-				</tr>
-				<tr>
-					<td colspan="4">
-						<button class="btn waves-effect waves-light col s12" type="submit" name="action">
-							<i class="material-icons">airplay</i>
-						</button>
-					</td>
-				</tr>
-			</tbody>
-		</table>
+			<div class="form-row row">
+				<div class="form-group input-field col s4">
+					<input type="text" th:field="*{sum1}" class="form-control field" placeholder="Operando 1">
+				</div>
+				<div class="form-group input-field col s4">
+					<input type="text" th:field="*{sum2}" class="form-control field" placeholder="Operando 2">
+				</div>
+				<div class="form-group input-field col s4">
+					<input class="input form-control field" type="text" th:text="${cuentas.resultadoSuma()}" placeholder="Resultado">
+				</div>
+			</div>
+
+			<h3>Resta</h3>
+			<div class="form-row row">
+					<div class="form-group input-field col s4">
+					<input type="text" th:field="*{resta1}" class="form-control field" placeholder="Operando 1">
+				</div>
+				<div class="form-group input-field col s4">
+					<input type="text" th:field="*{resta2}" class="form-control field" placeholder="Operando 2">
+				</div>
+				<div class="form-group input-field col s4">
+					<input type="text" th:text="${cuentas.resultadoResta()}" class="form-control field"
+						placeholder="Resultado">
+				</div>
+			</div>
+			<h3>Multiplicacion</h3>
+			<div class="form-row row">
+				<div class="form-group input-field col s4">
+					<input type="text" th:field="*{mult1}" class="form-control field" placeholder="Operando 1">
+				</div>
+				<div class="form-group input-field col s4">
+					<input type="text" th:field="*{mult2}" class="form-control field" placeholder="Operando 2">
+				</div>
+				<div class="form-group input-field col s4">
+					<input type="text" th:text="${cuentas.resultadoMulti()}" class="form-control field"
+						placeholder="Resultado">
+				</div>
+			</div>
+
+			<h3>Division</h3>
+			<div class="form-row row">
+				<div class="form-group input-field col s4">
+					<input type="text" th:field="*{div1}" class="form-control field" placeholder="Operando 1">
+				</div>
+				<div class="form-group input-field col s4">
+					<input type="text" th:field="*{div2}" class="form-control field" placeholder="Operando 2">
+				</div>
+				<div class="form-group input-field col s4">
+					<input type="text" th:text="${cuentas.resultadoDiv()}" class="form-control field" placeholder="Resultado">
+				</div>
+			</div>
+			<div class="row">
+					<button type="submit" class="btn col s12">Submit</button>
+			</div>
+			
+		</form>
 	</div>
-
+	<!-- Compiled and minified JavaScript -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </body>
 
 </html>
