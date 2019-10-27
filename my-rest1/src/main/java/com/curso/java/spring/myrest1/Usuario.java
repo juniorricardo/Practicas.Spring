@@ -1,4 +1,4 @@
-package com.curso.java.spring.myrest1.bean;
+package com.curso.java.spring.myrest1;
 
 public class Usuario {
 	

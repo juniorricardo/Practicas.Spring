@@ -7,14 +7,11 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.curso.java.spring.myrest1.bean.Usuario;
-
 @Controller
-@RequestMapping("/lista")
 public class listaController {
 
 	
-    @GetMapping(value = "")
+    @GetMapping("/lista")
     public String listar(Model model) {
         model.addAttribute("usuario", new Usuario());
         return "lista";
@@ -22,7 +19,8 @@ public class listaController {
     
     @PostMapping("/lista")
     public String listaSubmit(@ModelAttribute Usuario user) {
-        return "lista";
+//        return "redirect:/lista";
+    	return "login";
     }
     
 //    @PutMapping("/lista")
