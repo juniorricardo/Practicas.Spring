@@ -37,33 +37,32 @@ body {
 
 		<form action="#" th:action="@{/addUser}" th:object="${usuario}"
 			method="post" class="col-12">
-			<p>
-				Nombre de usuario: <input type="text" th:field="*{nombreUsuario}"
-					placeholder="Usuario">
-			</p>
-			<p>
-				Contraseña: <input type="text" th:field="*{contrasenia}"
-					placeholder="Contraseña">
-			</p>
+			<div class="form-section">
+				<div class="input-control">
+					<input type="text" class="input-contains-icon"
+						th:field="*{nombreUsuario}" placeholder="Usuario"> <span
+						class="icon"> <i class="fas fa-user"></i></span>
+				</div>
+			</div>
+			<div class="form-section">
+				<div class="input-control">
+					<input type="text" class="input-contains-icon"
+						th:field="*{contrasenia}" placeholder="Contraseña"> <span
+						class="icon"> <i class="fas fa-key"></i></span>
+				</div>
+			</div>
 			<p class="row">
-				<input class="col-12 btn-dark" type="submit" value="Submit" />
+				<input class="col-12 btn-primary outline" type="submit" value="Submit" />
 			</p>
 		</form>
 		<div class="col-12">
 			<h1>Resultado</h1>
 		</div>
-		<div>
-			<div>
-<!-- 				<p class="col" th:text="${hola}"></p> -->
-<!-- 				<p class="col" th:text="'Usuario: ' + ${otro.nombreUsuario}"></p> -->
-<!-- 				<p class="col" th:text="'Contraseña: ' + ${otro.contrasenia}"></p> -->
-				<p class="col" th:text="'Usuario: ' + ${usuario.nombreUsuario}"></p>
-				<p class="col" th:text="'Contraseña: ' + ${usuario.contrasenia}"></p>
-			</div>
-			</div>
-			<div></div>
+		<div class="col">
+			<!-- 			<span -->
+			<!-- 				th:text="${otro != null} ? ${otro.nombreUsuario} + ' - ' + ${otro.contrasenia} : 'Esperando dato: Nombre usuario y contraseña'">someValue</span> -->
+			<span th:text="${estado == null} ? 'En espera de estado' : ${estado}"></span>
 		</div>
 	</div>
-
 </body>
 </html>

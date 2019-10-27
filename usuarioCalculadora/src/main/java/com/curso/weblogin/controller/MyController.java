@@ -20,13 +20,13 @@ public class MyController {
 	}
 
 	@PostMapping("/addUser")
-	public String processForm() {
-//	public String processForm(@ModelAttribute Usuario nuevousuario, Model modelo) {
-//		if (nuevousuario.getNombreUsuario() == "junior") {
-//			modelo.addAttribute("hola" + nuevousuario.getNombreUsuario().toString());
-//		} else {
-//			modelo.addAttribute("hola" + nuevousuario.getNombreUsuario().toString() + " no existe en la base de datos");
-//		}
+	public String processForm(@ModelAttribute Usuario nuevousuario, Model modelo) {
+		if (nuevousuario.getNombreUsuario().equals("junior")) {
+			modelo.addAttribute("estado", "Bienvenido ".concat(nuevousuario.getNombreUsuario()));
+		} else {
+			modelo.addAttribute("estado",
+					"Hola ".concat(nuevousuario.getNombreUsuario() + ", registro no encontrado. (ERROR!)"));
+		}
 //		Usuario uno = new Usuario();
 //		uno.setNombreUsuario("Mitsuha");
 //		uno.setContrasenia("jaja123");
