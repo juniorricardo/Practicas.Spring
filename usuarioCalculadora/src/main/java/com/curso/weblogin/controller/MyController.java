@@ -20,12 +20,17 @@ public class MyController {
 	}
 
 	@PostMapping("/addUser")
-	public String processForm(@ModelAttribute Usuario nuevousuario, Model modelo) {
-		if (nuevousuario.getNombreUsuario() == "junior") {
-			modelo.addAttribute("Hola " + nuevousuario.getNombreUsuario());
-		} else {
-			modelo.addAttribute("Error " + nuevousuario.getNombreUsuario() + " no existe en la base de datos");
-		}
+	public String processForm() {
+//	public String processForm(@ModelAttribute Usuario nuevousuario, Model modelo) {
+//		if (nuevousuario.getNombreUsuario() == "junior") {
+//			modelo.addAttribute("hola" + nuevousuario.getNombreUsuario().toString());
+//		} else {
+//			modelo.addAttribute("hola" + nuevousuario.getNombreUsuario().toString() + " no existe en la base de datos");
+//		}
+//		Usuario uno = new Usuario();
+//		uno.setNombreUsuario("Mitsuha");
+//		uno.setContrasenia("jaja123");
+//		modelo.addAttribute("otro", uno);
 		return "addUser";
 	}
 
