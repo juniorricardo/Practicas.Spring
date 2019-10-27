@@ -10,19 +10,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.curso.java.spring.myrest1.bean.Usuario;
 
 @Controller
-@RequestMapping("lista")
+@RequestMapping("/lista")
 public class listaController {
 
 	
-    @GetMapping(value = "/lista")
+    @GetMapping(value = "")
     public String listar(Model model) {
         model.addAttribute("usuario", new Usuario());
         return "lista";
     }
     
     @PostMapping("/lista")
-    public String listaSubmit(@ModelAttribute Usuario user, String nombre, String apellido) {
-        return "redirect:/lista";
+    public String listaSubmit(@ModelAttribute Usuario user) {
+        return "lista";
     }
     
 //    @PutMapping("/lista")

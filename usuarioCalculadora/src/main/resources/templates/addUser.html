@@ -3,30 +3,63 @@
 <head>
 <title>Add user</title>
 <meta charset="UTF-8">
+<link href="https://unpkg.com/cirrus-ui" type="text/css"
+	rel="stylesheet" />
+<link
+	href="https://fonts.googleapis.com/css?family=Nunito+Sans:200,300,400,600,700"
+	rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700"
+	rel="stylesheet">
+<script src="https://kit.fontawesome.com/3a9f5153e2.js"
+	crossorigin="anonymous"></script>
+
+<style>
+body {
+	background-color: #3498db;
+	font-family: Arial, sans-serif;
+	padding: 50px
+}
+
+.container {
+	margin: 20px auto;
+	padding: 10px;
+	width: 500px;
+	height: 600px;
+	background-color: #fff;
+	border-radius: 5px
+}
+</style>
 </head>
 <body>
 
-	<h1>Add User</h1>
+	<div class="container row">
+		<h1 class="col">Agregar usuario:</h1>
 
-	<form action="#" th:action="@{/addUser}" th:object="${user}"
-		method="post">
-		<p>
-			nameUser: <input type="text" th:field="*{nameUser}">
-		</p>
-		<p>
-			password: <input type="text" th:field="*{password}">
-		</p>
-		<p>
-			<input type="submit" value="Submit" /> <input type="reset"
-				value="Reset">
-		</p>
-	</form>
-
-
-	<h1>Result</h1>
-
-	<p th:text="'Name: ' + ${user.nameUser}"></p>
-	<p th:text="'Occupation: ' + ${user.password}"></p>
+		<form action="#" th:action="@{/addUser}" th:object="${usuario}"
+			method="post" class="col-12">
+			<p>
+				Nombre de usuario: <input type="text" th:field="*{nombreUsuario}"
+					placeholder="Usuario">
+			</p>
+			<p>
+				Contraseña: <input type="text" th:field="*{contrasenia}"
+					placeholder="Contraseña">
+			</p>
+			<p class="row">
+				<input class="col-12 btn-dark" type="submit" value="Submit" />
+			</p>
+		</form>
+		<div class="col-12">
+			<h1>Resultado</h1>
+		</div>
+		<div>
+			<div >
+				<p class="col" th:text="'Usuario: ' + ${usuario.nombreUsuario}"></p>
+				<p class="col" th:text="'Contraseña: ' + ${usuario.contrasenia}"></p>
+			</div>
+			<div></div>
+		</div>
+	</div>
 
 </body>
 </html>

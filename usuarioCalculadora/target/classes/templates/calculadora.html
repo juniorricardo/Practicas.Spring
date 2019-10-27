@@ -2,154 +2,161 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head>
+<link href="https://unpkg.com/cirrus-ui" type="text/css"
+	rel="stylesheet" />
+<link
+	href="https://fonts.googleapis.com/css?family=Nunito+Sans:200,300,400,600,700"
+	rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700"
+	rel="stylesheet">
+<script src="https://kit.fontawesome.com/3a9f5153e2.js"
+	crossorigin="anonymous"></script>
+<style>
+body {
+	background-color: #3498db;
+	font-family: Arial, sans-serif;
+	padding: 50px
+}
 
-	<link href="https://unpkg.com/cirrus-ui" type="text/css" rel="stylesheet" />
+.container {
+	margin: 20px auto;
+	padding: 10px;
+	width: 500px;
+	height: 600px;
+	background-color: #fff;
+	border-radius: 5px
+}
 
-	<link href="https://fonts.googleapis.com/css?family=Nunito+Sans:200,300,400,600,700" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
+h1 {
+	width: 70%;
+	color: rgb(32, 32, 32);
+	font-size: 62px;
+	margin: auto;
+	margin-bottom: 20px;
+	text-align: center
+}
 
-	<style>
-		body {
-			background-color: #3498db;
-			font-family: Arial, sans-serif;
-			padding: 50px
-		}
+form {
+	text-align: center
+}
 
-		.container {
-			margin: 20px auto;
-			padding: 10px;
-			width: 500px;
-			height: 750px;
-			background-color: #fff;
-			border-radius: 5px
-		}
+input {
+	padding: 12px 0;
+	margin-bottom: 10px;
+	border-radius: 3px;
+	border: 2px solid transparent;
+	text-align: center;
+	width: 90%;
+	font-size: 16px;
+	transition: border .2s, background-color .2s
+}
 
-		h1 {
-			width: 70%;
-			color: rgb(32, 32, 32);
-			font-size: 62px;
-			margin: 28px auto;
-			margin-bottom: 20px;
-			text-align: center
-		}
+form .field {
+	background-color: #ecf0f1
+}
 
-		form {
-			text-align: center
-		}
+form .field:focus {
+	border: 2px solid #3498db
+}
 
-		input {
-			padding: 12px 0;
-			margin-bottom: 10px;
-			border-radius: 3px;
-			border: 2px solid transparent;
-			text-align: center;
-			width: 90%;
-			font-size: 16px;
-			transition: border .2s, background-color .2s
-		}
+form .btn {
+	background-color: #3498db;
+	color: #fff;
+	line-height: 25px;
+	cursor: pointer l
+}
 
-		form .field {
-			background-color: #ecf0f1
-		}
+form .btn:active, form .btn:hover {
+	background-color: #1f78b4;
+	border: 2px solid #1f78b4
+}
 
-		form .field:focus {
-			border: 2px solid #3498db
-		}
+.pass-link {
+	text-align: center
+}
 
-		form .btn {
-			background-color: #3498db;
-			color: #fff;
-			line-height: 25px;
-			cursor: pointer
-			l
-		}
-
-		form .btn:active,
-		form .btn:hover {
-			background-color: #1f78b4;
-			border: 2px solid #1f78b4
-		}
-
-		.pass-link {
-			text-align: center
-		}
-
-		.pass-link a:link,
-		.pass-link a:visited {
-			font-size: 12px;
-			color: #777
-		}
-	</style>
-
-
+.pass-link a:link, .pass-link a:visited {
+	font-size: 12px;
+	color: #777
+}
+</style>
 
 </head>
 
 <body>
-	<h1>Calculadora</h1>
+	<h1>
+		Calculadora <i class="fas fa-calculator"></i>
+	</h1>
 	<div class="container">
-		<form action="#" th:action="@{/calculadora}" th:object="${cuentas}" method="post" class="login">
+		<form action="#" th:action="@{/calculadora}" th:object="${cuentas}"
+			method="post" class="login">
 			<h3>Suma</h3>
-
 			<div class="form-row row">
 				<div class="form-group input-field col s4">
-					<input type="text" th:field="*{sum1}" class="form-control field" placeholder="Operando 1">
+					<input type="text" th:field="*{sum1}" class="form-control field"
+						placeholder="Operando 1">
 				</div>
 				<div class="form-group input-field col s4">
-					<input type="text" th:field="*{sum2}" class="form-control field" placeholder="Operando 2">
+					<input type="text" th:field="*{sum2}" class="form-control field"
+						placeholder="Operando 2">
 				</div>
 				<div class="form-group input-field col s4">
-					<input class="input form-control field" type="text" th:text="${cuentas.resultadoSuma()}" placeholder="Resultado">
+					<input class="form-control field" type="text"
+						th:value="${cuentas.resultadoSuma()}" disabled>
 				</div>
 			</div>
-
 			<h3>Resta</h3>
 			<div class="form-row row">
-					<div class="form-group input-field col s4">
-					<input type="text" th:field="*{resta1}" class="form-control field" placeholder="Operando 1">
+				<div class="form-group input-field col s4">
+					<input type="text" th:field="*{resta1}" class="form-control field"
+						placeholder="Operando 1">
 				</div>
 				<div class="form-group input-field col s4">
-					<input type="text" th:field="*{resta2}" class="form-control field" placeholder="Operando 2">
+					<input type="text" th:field="*{resta2}" class="form-control field"
+						placeholder="Operando 2">
 				</div>
 				<div class="form-group input-field col s4">
-					<input type="text" th:text="${cuentas.resultadoResta()}" class="form-control field"
-						placeholder="Resultado">
+					<input class="form-control field" type="text"
+						th:value="${cuentas.resultadoResta()}" disabled>
 				</div>
 			</div>
 			<h3>Multiplicacion</h3>
 			<div class="form-row row">
 				<div class="form-group input-field col s4">
-					<input type="text" th:field="*{mult1}" class="form-control field" placeholder="Operando 1">
+					<input type="text" th:field="*{mult1}" class="form-control field"
+						placeholder="Operando 1">
 				</div>
 				<div class="form-group input-field col s4">
-					<input type="text" th:field="*{mult2}" class="form-control field" placeholder="Operando 2">
+					<input type="text" th:field="*{mult2}" class="form-control field"
+						placeholder="Operando 2">
 				</div>
 				<div class="form-group input-field col s4">
-					<input type="text" th:text="${cuentas.resultadoMulti()}" class="form-control field"
-						placeholder="Resultado">
+					<input class="form-control field" type="text"
+						th:value="${cuentas.resultadoMulti()}" disabled>
 				</div>
 			</div>
-
 			<h3>Division</h3>
 			<div class="form-row row">
 				<div class="form-group input-field col s4">
-					<input type="text" th:field="*{div1}" class="form-control field" placeholder="Operando 1">
+					<input type="text" th:field="*{div1}" class="form-control field"
+						placeholder="Operando 1">
 				</div>
 				<div class="form-group input-field col s4">
-					<input type="text" th:field="*{div2}" class="form-control field" placeholder="Operando 2">
+					<input type="text" th:field="*{div2}" class="form-control field"
+						placeholder="Operando 2">
 				</div>
 				<div class="form-group input-field col s4">
-					<input type="text" th:text="${cuentas.resultadoDiv()}" class="form-control field" placeholder="Resultado">
+					<input class="form-control field" type="text"
+						th:value="${cuentas.resultadoDiv()}" disabled>
 				</div>
 			</div>
 			<div class="row">
-					<button type="submit" class="btn col s12">Submit</button>
+				<button type="submit" class="btn col s12">Calcular
+					<i class="fas fa-microchip"></i>
+				</button>
 			</div>
-			
 		</form>
 	</div>
-	<!-- Compiled and minified JavaScript -->
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </body>
 
 </html>

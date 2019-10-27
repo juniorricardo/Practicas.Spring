@@ -1,5 +1,7 @@
 package home;
 
+
+//POJO
 public class Login {
 	
 	private String nombre;

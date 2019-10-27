@@ -5,20 +5,27 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.curso.weblogin.pojo.Cuentas;
-import com.curso.weblogin.pojo.User;
+import com.curso.weblogin.pojo.Usuario;
 
 @Controller
 public class MyController {
 
 	@GetMapping("/addUser")
-	public String sendForm(User user) {
+	public String sendForm(Model modelo) {
+		modelo.addAttribute("usuario", new Usuario());
 		return "addUser";
 	}
 
 	@PostMapping("/addUser")
-	public String processForm(User user) {
+	public String processForm(@ModelAttribute Usuario nuevousuario, Model modelo) {
+		if (nuevousuario.getNombreUsuario() == "junior") {
+			modelo.addAttribute("Hola " + nuevousuario.getNombreUsuario());
+		} else {
+			modelo.addAttribute("Error " + nuevousuario.getNombreUsuario() + " no existe en la base de datos");
+		}
 		return "addUser";
 	}
 

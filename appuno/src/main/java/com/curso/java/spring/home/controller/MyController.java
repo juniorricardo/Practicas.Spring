@@ -1,4 +1,4 @@
-package com.curso.java.spring.controller;
+package com.curso.java.spring.home.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

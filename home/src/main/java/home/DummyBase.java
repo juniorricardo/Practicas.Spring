@@ -20,7 +20,7 @@ public class DummyBase {
 	}
 
 	public void setTabla(HashMap<String, String> tabla) {
-		this.tabla = tabla;
+		DummyBase.tabla = tabla;
 	}
 
 }

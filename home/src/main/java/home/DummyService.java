@@ -6,10 +6,6 @@ import org.springframework.stereotype.Service;
 public class DummyService {
 
 	public boolean getAtributos(Login nuevo) {
-		if (DummyBase.getTabla().get(nuevo.getNombre()).equals(nuevo.getPassword())) {
-			return true;
-		} else {
-			return false;
-		}
+		return DummyBase.getTabla().getOrDefault(nuevo.getNombre(), "---").equals(nuevo.getPassword());
 	}
 }
