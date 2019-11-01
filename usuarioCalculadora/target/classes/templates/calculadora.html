@@ -35,7 +35,13 @@ h1 {
 	margin-bottom: 20px;
 	text-align: center
 }
-
+h2 {
+	color: rgb(32, 32, 32);
+	font-size: 62px;
+	margin: auto;
+	margin-bottom: 20px;
+	text-align: center
+}
 form {
 	text-align: center
 }
@@ -84,9 +90,11 @@ form .btn:active, form .btn:hover {
 </head>
 
 <body>
-	<h1>
+	<div class="container">
+		<h2>
 		Calculadora <i class="fas fa-calculator"></i>
-	</h1>
+	</h2>
+	</div>
 	<div class="container">
 		<form action="#" th:action="@{/calculadora}" th:object="${cuentas}"
 			method="post" class="login">

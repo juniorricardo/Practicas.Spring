@@ -9,7 +9,6 @@ public class Cuentas {
 	@Min(18)
 	private float sum1, sum2, resta1, resta2, mult1, mult2, div1, div2;
 
-	
 	public void setSum1(float sum1) {
 		this.sum1 = sum1;
 	}
@@ -87,7 +86,7 @@ public class Cuentas {
 	}
 
 	public float resultadoDiv() {
-		return div1 / div2;
+		return (div2 == 0) ? 0 : div1 / div2;
 	}
 
 }
