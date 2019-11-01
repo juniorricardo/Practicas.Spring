@@ -21,6 +21,22 @@ public class MyController{
     public String greetingSubmit(@ModelAttribute User dos) {
         return "result";
     }
+    
+    @GetMapping("/inicio")
+    public String cuentaForm() {
+    	return "inicio";
+    }
+    
+    @PostMapping("/inicio")
+    public String metodoImpuesto(@ModelAttribute ClaseCuenta unParametro) {
+        return "inicio";
+    }
+    
+    @ModelAttribute("cuentaform")
+	public ClaseCuenta cargarTabla() {
+    	ClaseCuenta elemt = new ClaseCuenta();
+		return elemt;
+	}
 
 }
 
