@@ -22,21 +22,16 @@ public class MyController{
         return "result";
     }
     
-    @GetMapping("/inicio")
-    public String cuentaForm() {
-    	return "inicio";
+    @GetMapping("/calculadora")
+    public String cuentaForm(Model modelo) {
+    	modelo.addAttribute("objeto", new ClaseCuenta());
+    	return "calculadora";
     }
     
-    @PostMapping("/inicio")
-    public String metodoImpuesto(@ModelAttribute ClaseCuenta unParametro) {
-        return "inicio";
+    @PostMapping("/calculadora")
+    public String metodoImpuesto(@ModelAttribute ("objeto")ClaseCuenta algo) {
+        return "calculadora";
     }
-    
-    @ModelAttribute("cuentaform")
-	public ClaseCuenta cargarTabla() {
-    	ClaseCuenta elemt = new ClaseCuenta();
-		return elemt;
-	}
 
 }
 

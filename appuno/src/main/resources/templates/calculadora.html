@@ -5,6 +5,7 @@
 <title>Calcular</title>
 <link href="https://unpkg.com/cirrus-ui" type="text/css"
 	rel="stylesheet" />
+
 <link
 	href="https://fonts.googleapis.com/css?family=Nunito+Sans:200,300,400,600,700"
 	rel="stylesheet">
@@ -45,16 +46,8 @@ input {
 	border: 2px solid;
 	text-align: center;
 	width: auto;
-	font-size: 16px;
+	font-size: 30px !important;
 	transition: border .2s, background-color .2s
-}
-
-form .field {
-	background-color: #ecf0f1
-}
-
-form .field:focus {
-	border: 2px solid #3498db
 }
 
 form .btn {
@@ -69,25 +62,25 @@ form .btn {
 	<div class="container">
 		<h1>Ingrese el monto a calcular:</h1>
 		<div>
-			<form class="form" action="#" th:action="@{/inicio}"
-				th:object="${cuentaform}" method="post">
+			<form class="form" action="#" th:action="@{/calculadora}"
+				th:object="${objeto}" method="post">
 				<div class="form-group">
-					<input class="input" th:field="*{montoIva}" placeholder="para Iva">
-					<input type="text" th:value="*{ivaActual} +'%'" disabled> 
-					<input type="text" th:value="${cuentaform.calcularIva()}" disabled>
+					<input class="input" th:field="*{montoIva}" placeholder="para Iva"
+						value="0.0"> <input type="text" th:value="'21%'" disabled>
+					<input type="text"
+						th:value="${objeto.calcularIva() == null} ? 'ss': ${objeto.calcularIva()} "
+						disabled>
 				</div>
 
 				<div class="form-group">
 					<input class="input" placeholder="para Retenciones"
-						th:field="*{montoRentenciones}"> 
-					<input type="text"
-						th:value="*{retencionesActual} + '%'" disabled> 
-<!-- 					<input -->
-<!-- 						th:value="${cuentaform.calcularRentencion()}"> -->
+						th:field="*{montoRentenciones}"> <input type="text"
+						th:value="'10%'" disabled> <input type="text"
+						th:value="${objeto.calcularRentencion() == null} ? 'ss' : ${objeto.calcularRentencion()}"
+						disabled>
 				</div>
-				<div>
-					<button type="submit" class="btn">Calcular</button>
-					<button type="reset" class="btn">limpiar</button>
+				<div class="form-group btn-group">
+					<input type="submit" class="btn" value="Calcular" />
 				</div>
 
 			</form>
