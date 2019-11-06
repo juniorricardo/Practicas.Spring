@@ -29,7 +29,7 @@ public class MyController{
     }
     
     @PostMapping("/calculadora")
-    public String metodoImpuesto(@ModelAttribute ("objeto")ClaseCuenta algo) {
+    public String metodoImpuesto(@ModelAttribute ("objeto") ClaseCuenta algo) {
         return "calculadora";
     }
 

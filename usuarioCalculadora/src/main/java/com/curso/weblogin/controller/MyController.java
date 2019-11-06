@@ -37,7 +37,7 @@ public class MyController {
 	public String capturarValores(Model modelo) {
 		modelo.addAttribute("mensaje", "este es un mensaje");
 		return "calculadora";
-	}
+	} 
 
 	@PostMapping("/calculadora")
 	public String capturarAccion(@ModelAttribute Cuentas miObjeto) {
