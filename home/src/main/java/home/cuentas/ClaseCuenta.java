@@ -1,4 +1,4 @@
-package com.curso.java.spring.home;
+package home.cuentas;
 
 public class ClaseCuenta {
 

@@ -5,10 +5,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
+
+import home.cuentas.ClaseCuenta;
+import home.login.DummyService;
+import home.login.Login;
 
 @Controller
-public class LoginController {
+public class MiController {
 
 	@Autowired
 	DummyService miTabla;
@@ -21,11 +24,28 @@ public class LoginController {
 		return "login";	// hace referencia a 'login.html' una vista
 	}
 
-	@PostMapping("/login")
-	public String getLogin(@ModelAttribute Login nuevo) {
+	@GetMapping("/loguear")
+	public String getLogin(@ModelAttribute Login nuevo, Model modelo) {
 		if(miTabla.getAtributos(nuevo)) {
-			return "resultado";
+			modelo.addAttribute("objeto", new ClaseCuenta());
+			return "calculadora";
 		}
 		return "resultadoerror";
 	}
+	
+	@GetMapping("/calculadora")
+    public String cuentaForm(@ModelAttribute Login objeto, Model modelo) {
+		if(objeto == null) {
+			modelo.addAttribute("objeto", new ClaseCuenta());
+		}
+		else {
+			modelo.addAttribute("objeto", objeto);
+		}
+    	return "calculadora";
+    }
+    
+    @GetMapping("/calcular")
+    public String metodoImpuesto(@ModelAttribute ("objeto") ClaseCuenta algo) {
+        return "calculadora";
+    }
 }

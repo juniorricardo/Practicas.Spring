@@ -1,4 +1,4 @@
-package home;
+package home.login;
 
 import org.springframework.stereotype.Service;
 

@@ -1,4 +1,4 @@
-package home;
+package home.login;
 
 import java.util.HashMap;
 
@@ -11,7 +11,6 @@ public class DummyBase {
 		tabla = new HashMap<String,String>();
 		tabla.put("leandro","123");
 		tabla.put("pablo", "456");
-		tabla.put("pedro", "789");
 		tabla.put("ricardo", "147");
 	}
 	
